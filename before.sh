@@ -36,5 +36,14 @@
 #EOF
 #git apply example.patch
 
+#增加自己的仓库
+echo 'src-git big https://github.com/BiGnotes/op-package.git' >> feeds.conf.default
+
 #修改ip地址
 sed -i 's/192.168.1.1/192.168.1.10/g' package/base-files/files/bin/config_generate
+
+#修改主机名
+sed -i '/uci commit system/i\uci set system.@system[0].hostname='Eugene_Router'' package/lean/default-settings/files/zzz-default-settings
+
+#修改编译者信息（日期）
+sed -i "s/OpenWrt /Kinoko build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
