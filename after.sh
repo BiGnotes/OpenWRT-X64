@@ -16,3 +16,6 @@
 #patch content
 #EOF
 #git apply example.patch
+
+#修改ttyd登陆免输用户名
+sed -i "s#/bin/login#/bin/login -f root#g" feeds/packages/utils/ttyd/files/ttyd.config
