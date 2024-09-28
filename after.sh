@@ -75,3 +75,28 @@ sed -i 's/_("全能推送"), 30/_("全能推送"), 50/' feeds/luci/applications/
 
 # 解锁云音乐
 sed -i 's/_("Unblock Netease Music"), 50/_("Unblock Netease Music"), 55/' feeds/luci/applications/luci-app-unblockmusic/luasrc/controller/unblockmusic.lua
+
+# FTP
+sed -i 's/_("FTP Server")/_("FTP Server"), 5/' feeds/luci/applications/luci-app-vsftpd/luasrc/controller/vsftpd.lua
+
+# Frps
+sed -i 's/"services"/"nas"/g' feeds/luci/applications/luci-app-frps/luasrc/controller/frps.lua
+sed -i 's/_("Frps"), 99/_("Frps"), 10/' feeds/luci/applications/luci-app-frps/luasrc/controller/frps.lua
+
+# Frps
+sed -i 's/"services"/"nas"/g' feeds/luci/applications/luci-app-frpc/luasrc/controller/frp.lua
+sed -i 's/_("Frp Setting"), 100/_("Frp Setting"), 15/' feeds/luci/applications/luci-app-frpc/luasrc/controller/frp.lua
+
+# Lucky
+sed -i 's/"services"/"nas"/g' feeds/big/luci-app-lucky/luci-app-lucky/luasrc/controller/lucky.lua
+sed -i 's/_("Lucky"), 57/_("Lucky"), 20/' feeds/big/luci-app-lucky/luci-app-lucky/luasrc/controller/lucky.lua
+
+# KMS服务器
+sed -i 's/"services"/"nas"/g' feeds/luci/applications/luci-app-vlmcsd/luasrc/controller/vlmcsd.lua
+sed -i 's/_("KMS Server"), 100/_("KMS Server"), 25/' feeds/luci/applications/luci-app-vlmcsd/luasrc/controller/vlmcsd.lua
+
+# Zerotier
+sed -i '/entry({"admin", "vpn"}, firstchild(), "VPN", 45).dependent = false/d' feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
+sed -i 's/"vpn"/"nas"/g' feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
+sed -i 's/_("ZeroTier"), 99/_("ZeroTier"), 30/' feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
+
