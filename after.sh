@@ -33,5 +33,9 @@ curl -fsSL  https://raw.githubusercontent.com/sirpdboy/other/master/patch/powero
 
 #自定义luci程序
 # luci-app-appfilter顺序
-sed -i 's/"services"/"control"/g' feeds/big/luci-app-oaf/luasrc/controller/appfilter.lua && sed -i 's/2\([0-5]\)/3\1/g' feeds/big/luci-app-oaf/luasrc/controller/appfilter.lua
+sed -i 's/"services"/"control"/g' feeds/big/luci-app-oaf/luasrc/controller/appfilter.lua && sed -i 's/2\([0-5]\)/8\1/g' feeds/big/luci-app-oaf/luasrc/controller/appfilter.lua
 
+# 自定义任务
+sed -i '/entry({"admin", "control"}, firstchild(), "Control", 44).dependent = false/d' feeds/big/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+sed -i -e 's/entry({"admin", "control"}/entry({"admin", "services"}/g' \
+       -e 's/, 20/, 60/' feeds/big/luci-app-autotimeset/luasrc/controller/autotimeset.lua
