@@ -26,3 +26,7 @@ sed -i "/^list listen_https	[::]:443/s/^/#/" package/network/services/uhttpd/fil
 
 #删除自带netdata
 rm -rf package/feeds/luci/luci-app-netdata/
+
+#集成关机功能
+curl -fsSL  https://raw.githubusercontent.com/sirpdboy/other/master/patch/poweroff/poweroff.htm > feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/poweroff.htm 
+curl -fsSL  https://raw.githubusercontent.com/sirpdboy/other/master/patch/poweroff/system.lua > feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
