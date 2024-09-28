@@ -53,7 +53,6 @@ env:
   # please upload your scripts to the root directory of your workflow repo.
   CUSTOM_SCRIPT_1: before.sh
   CUSTOM_SCRIPT_2: after.sh
-  CUSTOM_SCRIPT_3: automatic.sh
   # STORE_PRODUCTS determine whether to upload all compilation products to workflow artifacts.
   # Not only firmwires, all compiled packages will be here, including compiled but not solidified into firmware.
   STORE_PRODUCTS: false
@@ -174,12 +173,6 @@ jobs:
           make download -j8
           find dl -size -1024c -exec ls -l {} \;
           find dl -size -1024c -exec rm -f {} \;
-
-      - name: Run custom-script-3
-        run: |
-          chmod +x $CUSTOM_SCRIPT_3
-          cd openwrt/
-          $GITHUB_WORKSPACE/$CUSTOM_SCRIPT_3
 
       - name: Compile the firmware
         id: compile
