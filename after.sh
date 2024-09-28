@@ -39,3 +39,9 @@ sed -i 's/"services"/"control"/g' feeds/big/luci-app-oaf/luasrc/controller/appfi
 sed -i '/entry({"admin", "control"}, firstchild(), "Control", 44).dependent = false/d' feeds/big/luci-app-autotimeset/luasrc/controller/autotimeset.lua
 sed -i -e 's/entry({"admin", "control"}/entry({"admin", "services"}/g' \
        -e 's/, 20/, 60/' feeds/big/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+
+# Adguard Home
+sed -i 's/10/5/' feeds/big/luci-app-adguardhome/luasrc/controller/AdGuardHome.lua
+
+# PassWall
+sed -i 's/_("Pass Wall"), -1/_("Pass Wall"), 10/' feeds/big/luci-app-passwall/luasrc/controller/passwall.lua
