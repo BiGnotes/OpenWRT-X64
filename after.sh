@@ -30,3 +30,8 @@ rm -rf package/feeds/luci/luci-app-netdata/
 #集成关机功能
 curl -fsSL  https://raw.githubusercontent.com/sirpdboy/other/master/patch/poweroff/poweroff.htm > feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/poweroff.htm 
 curl -fsSL  https://raw.githubusercontent.com/sirpdboy/other/master/patch/poweroff/system.lua > feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
+
+#自定义luci程序
+# luci-app-appfilter顺序
+sed -i 's/"services"/"control"/g' feeds/big/luci-app-oaf/luasrc/controller/appfilter.lua && sed -i 's/2\([0-5]\)/3\1/g' feeds/big/luci-app-oaf/luasrc/controller/appfilter.lua
+
