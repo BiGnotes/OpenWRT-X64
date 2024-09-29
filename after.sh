@@ -105,5 +105,5 @@ sed -i 's/_("ZeroTier"), 99/_("ZeroTier"), 30/' feeds/luci/applications/luci-app
 #sed -i 's/"带宽监控"/"监控"/g' `grep "带宽监控" -rl ./feeds/luci/`
 
 #网络存储改成服务器
-sed -i 's/"网络存储"/"服务器"/g' `grep "带宽监控" -rl ./feeds/luci/`
+sed -i 's/"网络存储"/"服务器"/g' `grep "网络存储" -rl ./feeds/luci/`
 
