@@ -21,8 +21,7 @@
 sed -i "s#/bin/login#/bin/login -f root#g" feeds/packages/utils/ttyd/files/ttyd.config
 
 #关闭https登陆
-sed -i "/^list listen_https 0.0.0.0:443/s/^/#/" package/network/services/uhttpd/files/uhttpd.config
-sed -i "/^list listen_https	[::]:443/s/^/#/" package/network/services/uhttpd/files/uhttpd.config
+sed -i 's/list listen_https/# list listen_https/' package/network/services/uhttpd/files/uhttpd.config
 
 #删除自带netdata
 rm -rf package/feeds/luci/luci-app-netdata/
