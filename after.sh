@@ -27,8 +27,8 @@ sed -i 's/list listen_https/# list listen_https/' package/network/services/uhttp
 rm -rf package/feeds/luci/luci-app-netdata/
 
 #集成关机功能
-curl -fsSL  https://raw.githubusercontent.com/sirpdboy/other/master/patch/poweroff/poweroff.htm > feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/poweroff.htm 
-curl -fsSL  https://raw.githubusercontent.com/sirpdboy/other/master/patch/poweroff/system.lua > feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
+#curl -fsSL  https://raw.githubusercontent.com/sirpdboy/other/master/patch/poweroff/poweroff.htm > feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/poweroff.htm 
+#curl -fsSL  https://raw.githubusercontent.com/sirpdboy/other/master/patch/poweroff/system.lua > feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 
 ##自定义luci程序
 # 任务设置
@@ -98,4 +98,12 @@ sed -i 's/_("KMS Server"), 100/_("KMS Server"), 25/' feeds/luci/applications/luc
 sed -i '/entry({"admin", "vpn"}, firstchild(), "VPN", 45).dependent = false/d' feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
 sed -i 's/"vpn"/"nas"/g' feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
 sed -i 's/_("ZeroTier"), 99/_("ZeroTier"), 30/' feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
+
+##修改菜单名称
+
+#带宽监控改成监控
+#sed -i 's/"带宽监控"/"监控"/g' `grep "带宽监控" -rl ./feeds/luci/`
+
+#网络存储改成服务器
+sed -i 's/"网络存储"/"服务器"/g' `grep "带宽监控" -rl ./feeds/luci/`
 
