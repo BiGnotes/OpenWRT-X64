@@ -46,5 +46,5 @@ sed -i 's/192.168.1.1/192.168.1.10/g' package/base-files/files/bin/config_genera
 sed -i '/commit system/i\set system.@system[0].hostname='Super_Router'' package/emortal/default-settings/files/99-default-settings-chinese
 
 #修改编译者信息（日期）
-sed -i '/exit 0/i\echo "DISTRIB_DESCRIPTION='Eugene build $(TZ=UTC-8 date "+%Y.%m.%d") @ Immortalwrt'" >> /etc/openwrt_release' 
+sed -i '/exit 0/i\echo "DISTRIB_DESCRIPTION='Eugene build $(TZ=UTC-8 date "+%Y.%m.%d") @ Immortalwrt'" >> /etc/openwrt_release' package/emortal/default-settings/files/99-default-settings-chinese
 
