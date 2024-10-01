@@ -43,9 +43,8 @@ echo 'src-git imp https://github.com/BiGnotes/im-package.git' >> feeds.conf.defa
 sed -i 's/192.168.1.1/192.168.1.10/g' package/base-files/files/bin/config_generate
 
 #修改主机名
-sed -i '/uci commit system/i\uci set system.@system[0].hostname='Super_Router'' package/lean/default-settings/files/zzz-default-settings
+sed -i '/commit system/i\set system.@system[0].hostname='Super_Router'' package/emortal/default-settings/files/99-default-settings-chinese
 
 #修改编译者信息（日期）
-sed -i "s/OpenWrt /Eugene build $(TZ=UTC-8 date "+%Y.%m.%d") @ Immortalwrt /g" package/lean/default-settings/files/zzz-default-settings
-
+sed -i '/exit 0/i\echo "DISTRIB_DESCRIPTION='Eugene build $(TZ=UTC-8 date "+%Y.%m.%d") @ Immortalwrt'" >> /etc/openwrt_release' 
 
