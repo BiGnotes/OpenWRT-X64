@@ -17,6 +17,10 @@
 #EOF
 #git apply example.patch
 
+#定义路径变量，缩短代码
+path1="feeds/luci/applications"
+path2="root/usr/share/luci/menu.d"
+
 #解决依赖问题
 sed -i "s/libpcre/libpcre2" package/feeds/telephony/freeswitch/Makefile
 
@@ -39,6 +43,22 @@ sed -i 's/50/55/g;s/解除网易云音乐播放限制/解锁云音乐/g' feeds/l
 
 # FTP
 sed -i 's/_("FTP Server")/_("FTP Server"), 5/' feeds/luci/applications/luci-app-vsftpd/luasrc/controller/vsftpd.lua
+
+# Frpc
+jq '.["admin/services/frpc"].order = 10' $path1/luci-app-frpc/$path2/luci-app-frpc.json > ~/tmp.json && mv ~/tmp.json $path1/luci-app-frpc/$path2/luci-app-frpc.json
+sed -i 's/services/nas/g' $path1/luci-app-frpc/$path2/luci-app-frpc.json
+
+# Frps
+jq '.["admin/services/frps"].order = 15' $path1/luci-app-frps/$path2/luci-app-frps.json > ~/tmp.json && mv ~/tmp.json $path1/luci-app-frps/$path2/luci-app-frps.json
+sed -i 's/services/nas/g' $path1/luci-app-frps/$path2/luci-app-frps.json
+
+# Lucky
+sed -i 's/"services"/"nas"/g' feeds/imp/luci-app-lucky/luasrc/controller/lucky.lua
+sed -i 's/_("Lucky"), 57/_("Lucky"), 20/' feeds/imp/luci-app-lucky/luasrc/controller/lucky.lua
+
+# KMS服务器
+sed -i 's/"services"/"nas"/g' feeds/luci/applications/luci-app-vlmcsd/luasrc/controller/vlmcsd.lua
+sed -i 's/_("KMS Server"), 100/_("KMS Server"), 25/' feeds/luci/applications/luci-app-vlmcsd/luasrc/controller/vlmcsd.lua
 
 # Zerotier
 sed -i 's/vpn/nas/g;s/90/30/g' feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
