@@ -37,14 +37,14 @@
 #git apply example.patch
 
 #增加自己的仓库
-echo 'src-git imp https://github.com/BiGnotes/im-package.git' >> feeds.conf.default
+#echo 'src-git imp https://github.com/BiGnotes/im-package.git' >> feeds.conf.default
 
 #修改ip地址
-sed -i 's/192.168.1.1/192.168.1.10/g' package/base-files/files/bin/config_generate
+#sed -i 's/192.168.1.1/192.168.1.10/g' package/base-files/files/bin/config_generate
 
 #修改主机名
-sed -i '/commit system/i\set system.@system[0].hostname='Super_Router'' package/emortal/default-settings/files/99-default-settings-chinese
+#sed -i '/commit system/i\set system.@system[0].hostname='Super_Router'' package/emortal/default-settings/files/99-default-settings-chinese
 
 #修改编译者信息（日期）
-sed -i "s/%D %V %C/Eugene build $(TZ=UTC-8 date '+%Y.%m.%d') @ Immortalwrt/g" package/base-files/files/etc/openwrt_release
+#sed -i "s/%D %V %C/Eugene build $(TZ=UTC-8 date '+%Y.%m.%d') @ Immortalwrt/g" package/base-files/files/etc/openwrt_release
 
