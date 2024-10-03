@@ -37,9 +37,44 @@ sed -i "s#/bin/login#/bin/login -f root#g" feeds/packages/utils/ttyd/files/ttyd.
 # netdata
 sed -i 's/system/status/g;s/10/90/g' feeds/luci/applications/luci-app-netdata/luasrc/controller/netdata.lua
 
+# Adguard Home
+sed -i 's/10/5/g' feeds/imp/luci-app-adguardhome/luasrc/controller/AdGuardHome.lua
+
+# PassWall
+sed -i 's/("Pass Wall"), -1/("Pass Wall"), 10/' feeds/luci/applications/luci-app-passwall/luasrc/controller/passwall.lua
+sed -i 's/nil, -1/nil, 10/' feeds/luci/applications/luci-app-passwall/luasrc/controller/passwall.lua
+
+# OpenClash
+sed -i 's/("OpenClash"), 50/("OpenClash"), 15/' feeds/luci/applications/luci-app-openclash/luasrc/controller/openclash.lua
+# MosDNS
+sed -i 's/30/20/g' package/mosdns/luci-app-mosdns/root/usr/share/luci/menu.d/luci-app-mosdns.json
+# SmartDNS
+jq '.["admin/services/smartdns"].order = 25' $path1/luci-app-smartdns/$path2/luci-app-smartdns.json > ~/tmp.json && mv ~/tmp.json $path1/luci-app-smartdns/$path2/luci-app-smartdns.json
+
+# udpxy
+jq '.["admin/services/udpxy"].order = 25' $path1/luci-app-udpxy/$path2/luci-app-udpxy.json > ~/tmp.json && mv ~/tmp.json $path1/luci-app-udpxy/$path2/luci-app-udpxy.json
+
+# UPnP
+jq '.["admin/services/upnp"].order = 25' $path1/luci-app-upnp/$path2/luci-app-upnp.json > ~/tmp.json && mv ~/tmp.json $path1/luci-app-upnp/$path2/luci-app-upnp.json
+
+# WOL Plus
+sed -i 's/95/40/' feeds/imp/luci-app-wolplus/luasrc/controller/wolplus.lua
+
+# 微信推送
+sed -i '0,/30/s/30/50/' feeds/luci/applications/luci-app-wechatpush/root/usr/share/luci/menu.d/luci-app-wechatpush.json
+
 # 解锁云音乐
 sed -i 's/50/55/g;s/解除网易云音乐播放限制/解锁云音乐/g' feeds/luci/applications/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
 
+# 任务设置
+sed -i '/entry({"admin", "control"}, firstchild(), "Control", 44).dependent = false/d' feeds/imp/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+sed -i 's/"admin", "control"/"admin", "system"/g' feeds/imp/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+sed -i 's/"admin","control"/"admin", "system"/g' feeds/imp/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+sed -i 's/, 20/, 62/' feeds/imp/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+
+# luci-app-appfilter
+sed -i 's/"services"/"control"/g' feeds/luci/applications/luci-app-appfilter/luasrc/controller/appfilter.lua
+sed -i 's/2\([0-5]\)/8\1/g' feeds/luci/applications/luci-app-appfilter/luasrc/controller/appfilter.lua
 
 # FTP
 sed -i 's/_("FTP Server")/_("FTP Server"), 5/' feeds/luci/applications/luci-app-vsftpd/luasrc/controller/vsftpd.lua
