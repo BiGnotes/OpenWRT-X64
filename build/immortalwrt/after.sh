@@ -22,7 +22,7 @@ path1="feeds/luci/applications"
 path2="root/usr/share/luci/menu.d"
 
 #解决依赖问题
-sed -i "s/libpcre/libpcre2" package/feeds/telephony/freeswitch/Makefile
+sed -i "s/libpcre/libpcre2/" package/feeds/telephony/freeswitch/Makefile
 
 #替换mosdns
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
@@ -101,10 +101,10 @@ sed -i 's/vpn/nas/g;s/90/30/g' feeds/luci/applications/luci-app-zerotier/root/us
 
 ##修改菜单名称
 #MultiWAN 管理器改成负载均衡
-#sed -i "s/MultiWAN 管理器/负载均衡/g" `grep "MultiWAN 管理器" -rl ./feeds/luci/`
+sed -i "s/MultiWAN 管理器/负载均衡/g" `grep "MultiWAN 管理器" -rl ./feeds/luci/`
 
 #UPnP IGD 和 PCP/NAT-PMP改成UPnP
-#sed -i 's#UPnP IGD 和 PCP/NAT-PMP#UPnP#g' `grep "UPnP IGD 和 PCP/NAT-PMP" -rl ./feeds/luci/`
+sed -i 's#UPnP IGD 和 PCP/NAT-PMP#UPnP#g' `grep "UPnP IGD 和 PCP/NAT-PMP" -rl ./feeds/luci/`
 
 #带宽监控改成监控
 #sed -i 's/"带宽监控"/"监控"/g' `grep "带宽监控" -rl ./feeds/luci/`
