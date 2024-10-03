@@ -13,7 +13,7 @@
 #-------------------------------------------------------------------------------------------------------
 
 # Workflow name which is showed in GitHub Actions.
-name: test
+name: ImmortalWrt-ubuntu24.02
 
 on:
   workflow_dispatch:
