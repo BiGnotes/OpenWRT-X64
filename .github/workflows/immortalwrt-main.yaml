@@ -13,7 +13,7 @@
 #-------------------------------------------------------------------------------------------------------
 
 # Workflow name which is showed in GitHub Actions.
-name: Build immortalwrt Firmware -main
+name: Build immortalwrt Firmware main
 
 on:
   workflow_dispatch:
