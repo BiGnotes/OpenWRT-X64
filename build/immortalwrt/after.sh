@@ -24,6 +24,9 @@ path2="root/usr/share/luci/menu.d"
 #解决依赖问题
 sed -i "s/libpcre/libpcre2/" package/feeds/telephony/freeswitch/Makefile
 
+#关闭https登陆
+#sed -i 's/list listen_https/# list listen_https/' package/network/services/uhttpd/files/uhttpd.config
+
 #替换mosdns
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
@@ -46,8 +49,10 @@ sed -i 's/nil, -1/nil, 10/' feeds/luci/applications/luci-app-passwall/luasrc/con
 
 # OpenClash
 sed -i 's/("OpenClash"), 50/("OpenClash"), 15/' feeds/luci/applications/luci-app-openclash/luasrc/controller/openclash.lua
+
 # MosDNS
 sed -i 's/30/20/g' package/mosdns/luci-app-mosdns/root/usr/share/luci/menu.d/luci-app-mosdns.json
+
 # SmartDNS
 jq '.["admin/services/smartdns"].order = 25' $path1/luci-app-smartdns/$path2/luci-app-smartdns.json > ~/tmp.json && mv ~/tmp.json $path1/luci-app-smartdns/$path2/luci-app-smartdns.json
 
