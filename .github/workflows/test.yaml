@@ -52,7 +52,7 @@ env:
 jobs:
   build:
     name: Build firmware
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
     if: needs.check.outputs.cache-hit != 'true' || github.event.inputs.force-build == 'true'
@@ -73,10 +73,3 @@ jobs:
           sudo timedatectl set-timezone $TIME_ZONE
           sudo mkdir -p /workdir/
           sudo chown $USER:$GROUPS /workdir/
-
-      - name: Clone source code
-        working-directory: /workdir
-        run: |
-          df -hT $PWD
-          git clone --depth 1 --branch $REPO_BRANCH --single-branch $REPO_URL openwrt/
-          ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
