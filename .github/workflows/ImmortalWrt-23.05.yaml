@@ -53,7 +53,7 @@ env:
   # You can modify the initial settings of your firmware through these two scripts. If this is what you need,
   # please upload your scripts to the root directory of your workflow repo.
   CUSTOM_SCRIPT_1: ./build/immortalwrt/before.sh
-  CUSTOM_SCRIPT_2: ./build/immortalwrt/after.sh
+  CUSTOM_SCRIPT_2: ./build/immortalwrt/after22.04.sh
   # STORE_PRODUCTS determine whether to upload all compilation products to workflow artifacts.
   # Not only firmwires, all compiled packages will be here, including compiled but not solidified into firmware.
   STORE_PRODUCTS: false
