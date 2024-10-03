@@ -101,7 +101,7 @@ sed -i 's/vpn/nas/g;s/90/30/g' feeds/luci/applications/luci-app-zerotier/root/us
 
 ##修改菜单名称
 #MultiWAN 管理器改成负载均衡
-#sed -i 's/MultiWAN 管理器/负载均衡/g' `grep "MultiWAN 管理器" -rl ./feeds/luci/`
+#sed -i "s/MultiWAN 管理器/负载均衡/g" `grep "MultiWAN 管理器" -rl ./feeds/luci/`
 
 #UPnP IGD 和 PCP/NAT-PMP改成UPnP
 #sed -i 's#UPnP IGD 和 PCP/NAT-PMP#UPnP#g' `grep "UPnP IGD 和 PCP/NAT-PMP" -rl ./feeds/luci/`
