@@ -24,6 +24,17 @@ path2="root/usr/share/luci/menu.d"
 #解决依赖问题
 sed -i "s/libpcre/libpcre2/" package/feeds/telephony/freeswitch/Makefile
 
+#关闭https登陆
+#sed -i 's/list listen_https/# list listen_https/' package/network/services/uhttpd/files/uhttpd.config
+
+# rollback ruby verion from 3.3.4 to 3.2.2
+cd feeds/packages
+git fetch --unshallow
+git checkout 565e79e73619f806bc56ef189917ba013f306023 -- lang/ruby
+# git checkout HEAD -- lang/ruby
+cd ..
+cd ..
+
 #替换mosdns
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
