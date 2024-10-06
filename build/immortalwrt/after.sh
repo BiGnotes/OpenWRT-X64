@@ -27,6 +27,10 @@ sed -i "s/libpcre/libpcre2/" package/feeds/telephony/freeswitch/Makefile
 #关闭https登陆
 #sed -i 's/list listen_https/# list listen_https/' package/network/services/uhttpd/files/uhttpd.config
 
+#替换golang
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
+
 #替换mosdns
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
