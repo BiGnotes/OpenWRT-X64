@@ -48,6 +48,9 @@ sed -i 's/192.168.1.1/192.168.1.10/g' package/base-files/files/bin/config_genera
 #更换默认源地址
 sed -i 's/mirrors.vsean.net/mirrors.nju.edu.cn/g' package/emortal/default-settings/files/99-default-settings-chinese
 
+#添加kiddin9仓库
+echo '#src/gz kiddin9 https://dl.openwrt.ai/23.05/packages/x86_64/kiddin9/' >> package/system/opkg/files/customfeeds.conf
+
 #修改编译者信息（日期）
 #sed -i 's/%D %V %C/Eugene build $(TZ=UTC-8 date '+%Y.%m.%d') @ Immortalwrt/g' package/base-files/files/etc/openwrt_release
 
