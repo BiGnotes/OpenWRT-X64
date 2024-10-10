@@ -46,7 +46,7 @@ git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
 #替换vlmcsd
-find ./ | grep Makefile | grep luci-app-vlmcsd | xargs rm -f
+#find ./ | grep Makefile | grep vlmcsd | xargs rm -f
 
 #修改ttyd登陆免输用户名
 sed -i "s#/bin/login#/bin/login -f root#g" feeds/packages/utils/ttyd/files/ttyd.config
