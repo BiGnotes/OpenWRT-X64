@@ -109,8 +109,8 @@ sed -i 's/"services"/"nas"/g' feeds/imp/luci-app-lucky/luasrc/controller/lucky.l
 sed -i 's/_("Lucky"), 57/_("Lucky"), 20/' feeds/imp/luci-app-lucky/luasrc/controller/lucky.lua
 
 # KMS服务器
-sed -i 's/"services"/"nas"/g' feeds/luci/applications/luci-app-vlmcsd/luasrc/controller/vlmcsd.lua
-sed -i 's/_("KMS Server"), 100/_("KMS Server"), 25/' feeds/luci/applications/luci-app-vlmcsd/luasrc/controller/vlmcsd.lua
+# sed -i 's/"services"/"nas"/g' feeds/luci/applications/luci-app-vlmcsd/luasrc/controller/vlmcsd.lua
+# sed -i 's/_("KMS Server"), 100/_("KMS Server"), 25/' feeds/luci/applications/luci-app-vlmcsd/luasrc/controller/vlmcsd.lua
 
 # Zerotier
 sed -i 's/vpn/nas/g;s/90/30/g' feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
